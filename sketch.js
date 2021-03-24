@@ -1,68 +1,59 @@
-var tom,tomI,jerry,jerryI,backgroundI,backgroundP,tom1,tom2,jerry1;
+var tom,tom1,tom2,tom3,tom4,jerry,jerry2,jerry3,jerry4,backgroundI,background;
 
 function preload() {
-   tomI = loadAnimation ("images/tomOne.png","images/tomTwo.png","images/tomThree.png","images/tomFour.png");
+   backgroung = loadImage("images/garden.png");
 
-   tom1 = loadImage ("images/tomOne.png")
+   tom1 = loadImage("images/tomOne.png");
+   tom2 = loadImage("image/tomTow.png");
+   tom3 = loadImage("image/tomThree.png");
+   tom4 = loadImage("image/tomFour.png");
 
-   tom2 = loadImage ("images/tomFour.png")
-
-   jerryI = loadAnimation ("images/jerryTwo.png","images/jerryThree.png","images/jerryFour.png");
-
-   jerry1 = loadImage ("images/jerryOne.png")
-
-   backgroundI = loadImage ("images/garden.png");
+   jerry1 = loadImage("image/jerryOne.png");
+   jerry2 = loadImage("image/jerryTow.png");
+   jerry3 = loadImage("image/jerryThree.png");
+   jerry4 = loadImage("image/jerryFour.png");
 }
 
 function setup(){
-    createCanvas(1000,1000);
+    createCanvas(1000,800);
 
-    backgroundP =  createSprite(200,400,0,0);
-    backgroundP.addImage(backgroundI);
-    //backgroundP.scale=2.0;
+    background =  createSprite(200,400,0,0);
+    background.addImage(backgroundI);
     
-    tom = createSprite(500, 650, 50, 80);
-    tom.addImage(tom1);
-    tom.scale=0.15;
-    tom.addAnimation("tomSleeping", tomI); 
-    jerry.addAnimation("jerryStanding", jerryI);
+    tom = createSprite(870, 600);
+    tom.addAnimation("tomSleeping", tom1);
+    tom.scale = 0.2;
 
-    jerry = createSprite(150, 600, 80, 30);
-    jerry.addImage(jerry1);
-    jerry.scale=0.1;
-
-    jerry.debug=true;
+    jerry = createSprite(200, 600);
+    jerry.addAnimation("jerryStanding", jerry1);
+    jerry.scale = 0.15; 
 }
 
-function draw() {
-
-    background(255);
-    
-    if (tom.isTouching(jerry)){
-        tom.velocityX=0;
-    }
-
+function draw() { 
+    background(bg); 
     if(tom.x - jerry.x < (tom.width - jerry.width)/2) { 
-        tom.velocityX=0;
+        tom.velocityX=0; 
         tom.addAnimation("tomLastImage", tomImg3); 
         tom.x =300; tom.scale=0.2; 
         tom.changeAnimation("tomLastImage"); 
-        jerry.addAnimation("jerryLastImage", jerryImg3);
-        jerry.scale=0.15;
+        jerry.addAnimation("jerryLastImage", jerryImg3); 
+        jerry.scale=0.15; 
         jerry.changeAnimation("jerryLastImage"); 
-        }
-
-    drawSprites();
+    } 
+        
+drawSprites(); 
 }
 
 
-function keyPressed(){
 
-if(keyCode === LEFT_ARROW){ 
-    tom.velocityX = -5; tom.addAnimation("tomRunning", tomImg2);
-     tom.changeAnimation("tomRunning");
-     jerry.addAnimation("jerryTeasing", jerryImg2);
-     jerry.frameDelay = 25;
-     jerry.changeAnimation("jerryTeasing");
-    }
+
+function keyPressed(){ 
+    if(keyCode === LEFT_ARROW){
+        tom.velocityX = -5; 
+        tom.addAnimation("tomRunning", tomImg2); 
+        tom.changeAnimation("tomRunning"); 
+        jerry.addAnimation("jerryTeasing", jerryImg2); 
+        jerry.frameDelay = 25;
+        jerry.changeAnimation("jerryTeasing");
+        } 
 }
