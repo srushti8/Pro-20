@@ -4,14 +4,14 @@ function preload() {
    backgroung = loadImage("images/garden.png");
 
    tom1 = loadImage("images/tomOne.png");
-   tom2 = loadImage("image/tomTow.png");
-   tom3 = loadImage("image/tomThree.png");
-   tom4 = loadImage("image/tomFour.png");
+   tom2 = loadImage("images/tomTow.png");
+   tom3 = loadImage("images/tomThree.png");
+   tom4 = loadImage("images/tomFour.png");
 
-   jerry1 = loadImage("image/jerryOne.png");
-   jerry2 = loadImage("image/jerryTow.png");
-   jerry3 = loadImage("image/jerryThree.png");
-   jerry4 = loadImage("image/jerryFour.png");
+   jerry1 = loadImage("images/jerryOne.png");
+   jerry2 = loadImage("images/jerryTow.png");
+   jerry3 = loadImage("images/jerryThree.png");
+   jerry4 = loadImage("images/jerryFour.png");
 }
 
 function setup(){
