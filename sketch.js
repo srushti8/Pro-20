@@ -1,36 +1,32 @@
-var tom,tom1,tom2,tom3,tom4,jerry,jerry2,jerry3,jerry4,backgroundI,background;
+var tom,tomImg1,tomImg2,tomImg3,jerry,jerryImg1,jerryImg2,jerryImg3,backgroundI;
 
 function preload() {
-   backgroung = loadImage("images/garden.png");
+   backgroundI = loadImage("images/garden.png");
 
-   tom1 = loadImage("images/tomOne.png");
-   tom2 = loadImage("images/tomTow.png");
-   tom3 = loadImage("images/tomThree.png");
-   tom4 = loadImage("images/tomFour.png");
+   tomImg1 = loadAnimation("images/tomOne.png");
+   tomImg2 = loadAnimation("images/tomTwo.png","images/tomThree.png");
+   tomImg3 = loadAnimation("images/tomFour.png");
 
-   jerry1 = loadImage("images/jerryOne.png");
-   jerry2 = loadImage("images/jerryTow.png");
-   jerry3 = loadImage("images/jerryThree.png");
-   jerry4 = loadImage("images/jerryFour.png");
+   jerryImg1 = loadAnimation("images/jerryOne.png");
+   jerryImg2 = loadAnimation("images/jerryTwo.png","images/jerryThree.png");
+   jerryImg3 = loadAnimation("images/jerryFour.png");
 }
 
 function setup(){
     createCanvas(1000,800);
 
-    background =  createSprite(200,400,0,0);
-    background.addImage(backgroundI);
     
     tom = createSprite(870, 600);
-    tom.addAnimation("tomSleeping", tom1);
+    tom.addAnimation("tomSleeping", tomImg1);
     tom.scale = 0.2;
 
     jerry = createSprite(200, 600);
-    jerry.addAnimation("jerryStanding", jerry1);
+    jerry.addAnimation("jerryStanding", jerryImg1);
     jerry.scale = 0.15; 
 }
 
 function draw() { 
-    background(bg); 
+    background(backgroundI); 
     if(tom.x - jerry.x < (tom.width - jerry.width)/2) { 
         tom.velocityX=0; 
         tom.addAnimation("tomLastImage", tomImg3); 
